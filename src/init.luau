@@ -57,7 +57,8 @@ end
 function PoolClass.grab<T>(self : PoolObject<T>, tag : string) : PoolInstance<T>?
     local model
 
-    if #self.cache[tag] > 0 then
+    local cached = self.cache[tag]
+    if cached and #cached > 0 then
         model = table.remove(self.cache[tag])
     elseif self:checkHistory(tag) then
         model = self:cloneFromHistory(tag) :: Model?
@@ -75,6 +76,7 @@ function PoolClass.pool<T>(self : PoolObject<T>, models : { PoolInstance<T> }, t
     for index, model : Model in models do
         local Id = tag or model.Name -- use name as default identifier
 
+        self.cache[Id] = self.cache[Id] or {}
         table.insert(self.cache[Id], model)
         
         model:PivotTo(CONFIGS.POSITION)
