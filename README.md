@@ -9,7 +9,7 @@ Add this to `wally.toml`:
 
 ```toml
 [dependencies]
-PoolClass = "nickszone/instancepoolclass@1.0.0"
+PoolClass = "nickszone/instancepoolclass@1.0.2"
 ```
 
 Then run:
