@@ -1,0 +1,7 @@
+[package]
+name = "nickszone/instancepoolclass"
+description = "Class for pooling pivotable instances."
+version = "1.0.0"
+license = "MIT"
+registry = "https://github.com/UpliftGames/wally-index"
+realm = "shared"
